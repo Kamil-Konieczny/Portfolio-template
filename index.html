@@ -1,0 +1,270 @@
+<!DOCTYPE HTML>
+<html lang="pl">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Konieczny</title>
+	<link rel="stylesheet" href="./css/style.css">
+	<link rel="stylesheet" href="./css/fontello.css">
+	<link rel="stylesheet" href="./css/shop.css">
+	<link rel="stylesheet" href="./css/jquery.tabSlideOut.css">
+	<link rel="shortcut icon" href="img/shortcut.ico" >
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Chela+One|Libre+Baskerville" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Audiowide" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Markazi+Text:600" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Crimson+Text:700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Arimo" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
+	<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+	<script src="./js/jquery.scrollTo.min.js"></script>
+	<script src="./js/jquery.tabSlideOut.js"></script>
+	<script src="./js/particles.min.js"></script>
+
+	<script>
+		window.onload = function () {
+			$('#link').click(function () { $.scrollTo($('#container'), 1000); });
+			$('#link1').click(function () { $.scrollTo($('#container2'), 700); });
+			$('#link2').click(function () { $.scrollTo($('#container4'), 1200); });
+
+		};
+		$(window).on("scroll", function () {
+			if ($(window).scrollTop()) {
+				$('nav').addClass('black');
+			}
+			else {
+				$('nav').removeClass('black');
+			}
+		})
+		$(window).scroll(function () {
+			const activeElClassName = 'active';
+			var position = $(this).scrollTop() + 1;
+
+			$('.section').each(function () {
+				const targetTop = $(this).offset().top;
+				const targetBottom = targetTop + $(this).height();
+
+				const id = $(this).attr('id');
+				if (position >= targetTop && position <= targetBottom) {
+					$('.' + id).addClass(activeElClassName);
+				} else {
+					$('.' + id).removeClass(activeElClassName);
+				}
+			});
+			if (position === 1) {
+				$('.container').addClass(activeElClassName);
+			}
+		});
+	</script>
+</head>
+<body>
+	
+		<div id="loader-wrapper">
+				<div class="load">
+					<hr />
+					<hr />
+					<hr />
+					<hr />
+				</div>
+			</div>
+<div id="container" class="section">
+	<nav>
+		<div class="logo">
+			<a id="link4" href="#"><span style="color:white;">Konie</span><span style="color:#00cc99;font-family: 'Audiowide', cursive;">czny</span></a>
+		</div>
+		<div class="menu">
+			<ul>
+				<li><a id="link" class="container active" href="#Home">HOME</a></li>
+				<li><a id="link1" class="container2" href="#">ABOUT</a></li>
+				<li><a id="link2" class="container4" href="#">OFFER</a></li>
+				<li><a id="link3" class="container5" href="podstrona2.html">CONTACT</a></li>
+			</ul>
+		</div>
+	</nav>
+	<div class="content">
+		<span style="color:#00cc99;font-family: 'Audiowide', cursive;font-size:90px;"> MODERN </span><br>
+		<span style="font-family: 'Abel', cursive;font-size:44px">WEBSITES</span>
+		<span style="font-family: 'Abel', sans-serif;font-size:44px">CREATION </span>
+		<br>
+		<br>
+		<div id="buttons">
+			<div id="button1"><a href="podstrona.html">CHECK UP MY PREVIOUS PROJECTS</a></div>
+		</div>
+	</div>
+</div>
+<div class="slideshow-container">
+
+	<div class="mySlides">
+		<q>Perfection is not attainable, but if we chase perfection we can catch excellence.</q>
+		<p class="author">- Vince Lombardi</p>
+	</div>
+
+	<div class="mySlides">
+		<q>It always seems impossible until it's done.</q>
+		<p class="author">- Nelson Mandela</p>
+	</div>
+
+	<div class="mySlides">
+		<q>I have not failed. I've just found 10,000 ways that won't work.</q>
+		<p class="author">- Thomas A. Edison</p>
+	</div>
+
+	<a class="prev" onclick="plusSlides(-1)">❮</a>
+	<a class="next" onclick="plusSlides(1)">❯</a>
+
+</div>
+
+<div class="dot-container">
+	<span class="dot" onclick="currentSlide(1)"></span>
+	<span class="dot" onclick="currentSlide(2)"></span>
+	<span class="dot" onclick="currentSlide(3)"></span>
+</div>
+
+<script>
+	var slideIndex = 1;
+	showSlides(slideIndex);
+
+	function plusSlides(n) {
+		showSlides(slideIndex += n);
+	}
+
+	function currentSlide(n) {
+		showSlides(slideIndex = n);
+	}
+
+	function showSlides(n) {
+		var i;
+		var slides = document.getElementsByClassName("mySlides");
+		var dots = document.getElementsByClassName("dot");
+		if (n > slides.length) { slideIndex = 1 }
+		if (n < 1) { slideIndex = slides.length }
+		for (i = 0; i < slides.length; i++) {
+			slides[i].style.display = "none";
+		}
+		for (i = 0; i < dots.length; i++) {
+			dots[i].className = dots[i].className.replace(" active1", "");
+		}
+		slides[slideIndex - 1].style.display = "block";
+		dots[slideIndex - 1].className += " active1";
+	}
+</script>
+
+<div class="section" id="container2">
+	<img src="img/tło3.jpg" />
+	<div class="content1">
+		<br>
+		<br>
+		<br>
+		<span style="font-family: 'Suicksand';font-size:65px;color:white;letter-spacing:2px;">Kamil<br>Konieczny</span><br><br>
+		os caracteres de um texto para criar um espécime de livro.<br>Este texto não só sobreviveu 5 séculos, mas também<br>
+		o salto para a tipografia electrónica, mantendo-se essencialmente inalterada.<br>
+		Foi popularizada nos anos 60 com a disponibilização<br>
+		<span style="color:rgb(217, 217, 217);font-size:24px;">Aldus PageMaker que incluem versões do Lorem Ipsum.
+			<br>and if you would like to have a modern
+			<br>do aqui", tornando-o texto legível<br>
+			actualmente o Lorem Ipsum como o modelo de texto usado por </span>
+	</div>
+</div>
+<div id="container4" class="section">
+	<div id="text"><span>What can I do for you:</span></div>
+	<div class="offer">
+		<div class="icon">
+			<i class="icon-code"></i>
+		</div>
+		<h1 class="h1">O Lorem Ipsum é um texto </h1>
+		por estas indústrias desde o ano de 1500, quando <br>uma misturou
+		os caracteres de um texto para criar um espécime <br>de livro. Este
+		tipografia electrónica, mantendo-se essencialmente <br>inalterada. Foi
+		popularizada nos anos 60 com a disponibilização<br><br>
+
+	</div>
+	<div class="offer1">
+		<div class="icon">
+			<i class="icon-basket-1"></i>
+		</div>
+		<h1 class="h1">O Lorem Ipsum é um texto </h1>
+		por estas indústrias desde o ano de 1500, quando <br>uma misturou
+		os caracteres de um texto para criar um espécime <br>de livro. Este
+		tipografia electrónica, mantendo-se essencialmente <br>inalterada. Foi
+		popularizada nos anos 60 com a disponibilização<br><br>
+	</div>
+	<div class="offer2">
+		<div class="icon">
+			<i class=" icon-user"></i>
+		</div>
+		<h1 class="h1">O Lorem Ipsum é um texto </h1>
+		por estas indústrias desde o ano de 1500, quando <br>uma misturou
+		os caracteres de um texto para criar um espécime <br>de livro. Este
+		tipografia electrónica, mantendo-se essencialmente <br>inalterada. Foi
+		popularizada nos anos 60 com a disponibilização<br><br>
+	</div>
+	<div class="offer3">
+		<div class="icon">
+			<i class="icon-login"></i>
+		</div>
+		<h1 class="h1">O Lorem Ipsum é um texto </h1>
+		por estas indústrias desde o ano de 1500, quando <br>uma misturou
+		os caracteres de um texto para criar um espécime <br>de livro. Este
+		tipografia electrónica, mantendo-se essencialmente <br>inalterada. Foi
+		popularizada nos anos 60 com a disponibilização<br><br>
+	</div>
+</div>
+<div class="container6">
+	<style>
+		.container6 {
+	/*Photo by sebastiaan  stam from Pexels*/
+	background-image: url('img/tło2.jpeg');
+	filter: grayscale(1);
+	background-attachment: fixed;
+	background-position: center;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 80vh;
+	opacity: 0.9;
+	background-size: cover;
+}
+		</style>
+</div>
+<div id="container7">
+	<div class="socialmedia">
+		<div class="fb-icon">
+			<a href="http://facebook.com" target="_blank" class="sociallinks"><i class="icon-facebook-squared"></i></a>
+		</div>
+		<div class="gplus-icon">
+			<a href="https://plus.google.com/discover" target="_blank" class="sociallinks"><i class="icon-gplus"></i></a>
+		</div>
+		<div class="gmail-icon">
+			<a href="http://gmail.com" target="_blank" class="sociallinks"><i class="icon-gmail"></i></a>
+		</div>
+		<div class="yt-icon">
+			<a href="http://youtube.com" target="_blank" class="sociallinks"><i class="icon-youtube"></i></a>
+		</div>
+	</div>
+	<div id="copyright">
+		Copyright by konieczny.com. All Rights Reserved.</div>
+</div>
+
+<div id="my-tab"><span style="background-color:#3b5998;font-size:20px;" class="handle">Facebook</span><iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Ffacebook&tabs=timeline&width=340&height=500&small_header=true&adapt_container_width=true&hide_cover=true&show_facepile=true&appId"
+	 width="340" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"
+	 allow="encrypted-media"></iframe></div>
+<script>
+	particlesJS("container", { "particles": { "number": { "value": 80, "density": { "enable": true, "value_area": 800 } }, "color": { "value": "#ffffff" }, "shape": { "type": "circle", "stroke": { "width": 0, "color": "#000000" }, "polygon": { "nb_sides": 5 }, "image": { "src": "img/github.svg", "width": 100, "height": 100 } }, "opacity": { "value": 0.5, "random": false, "anim": { "enable": false, "speed": 1, "opacity_min": 0.1, "sync": false } }, "size": { "value": 3, "random": true, "anim": { "enable": false, "speed": 40, "size_min": 0.1, "sync": false } }, "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.4, "width": 1 }, "move": { "enable": true, "speed": 6, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": false, "attract": { "enable": false, "rotateX": 600, "rotateY": 1200 } } }, "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": true, "mode": "repulse" }, "onclick": { "enable": true, "mode": "push" }, "resize": true }, "modes": { "grab": { "distance": 400, "line_linked": { "opacity": 1 } }, "bubble": { "distance": 400, "size": 40, "duration": 2, "opacity": 8, "speed": 3 }, "repulse": { "distance": 200, "duration": 0.4 }, "push": { "particles_nb": 4 }, "remove": { "particles_nb": 2 } } }, "retina_detect": true });
+	$('#my-tab').tabSlideOut({ 'tabLocation': 'right', 'action': 'click', 'offset': '100px' });
+</script>
+ <script>
+
+		$(window).on('load', function() {
+			$("#loader-wrapper").fadeOut();
+		});
+		
+		</script>
+</body>
+
+</html>
